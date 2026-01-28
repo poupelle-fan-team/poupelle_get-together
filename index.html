@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>えんとつ町のプペル ポスター配布マップ</title>
+    <style>
+        /* --- 基本リセットとフォント --- */
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f7f7f7;
+            color: #333;
+            text-align: center;
+        }
+
+        /* --- メインコンテナ --- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- タイトル --- */
+        h1 {
+            font-size: 2.2rem;
+            color: #004c99; /* ポスターをイメージした青 */
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #004c99;
+            margin-top: 0;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        /* --- マップセクション --- */
+        .map-section {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .map-section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* **【重要：画像差し替えポイント】** */
+            /* 用意された日本地図の画像ファイル名に変更してください */
+        }
+
+        /* --- 星印（ピン）の共通スタイル --- */
+        .star-pin {
+            position: absolute;
+            color: red; /* 星の色 */
+            font-size: 2.5rem; /* 星の大きさ */
+            transform: translate(-50%, -100%); /* 星の先端が指定位置に来るように調整 */
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* **【重要：ピン位置調整ポイント】** */
+        /* 地図に合わせて、'top'と'left'のパーセンテージを調整してください */
+
+        #pin-tokyo { top: 60%; left: 65%; } /* 東京付近のダミー位置 */
+        #pin-osaka { top: 65%; left: 50%; } /* 大阪付近のダミー位置 */
+        #pin-fukuoka { top: 75%; left: 25%; } /* 福岡付近のダミー位置 */
+        #pin-sapporo { top: 20%; left: 80%; } /* 札幌付近のダミー位置 */
+        #pin-nagoya { top: 63%; left: 58%; } /* 名古屋付近のダミー位置 */
+        #pin-sendai { top: 45%; left: 75%; } /* 仙台付近のダミー位置 */
+
+        /* --- リストセクション --- */
+        .store-list-section {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #555;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .store-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 30px; /* 行間と列間 */
+            font-size: 1rem;
+        }
+
+        .store-list li {
+            width: calc(50% - 15px); /* 2列表示 */
+            line-height: 1.8;
+            border-left: 3px solid #ccc;
+            padding-left: 10px;
+        }
+
+        /* --- レスポンシブ対応 --- */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .subtitle { font-size: 1.2rem; }
+            .container { padding: 20px 15px; }
+            .store-list li {
+                width: 100%; /* スマホでは1列表示 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>えんとつ町のプペル</h1>
+        <p class="subtitle">〜約束の時計台〜 ポスター配布マップ</p>
+
+        <div class="map-section">
+            <img src="japan_map.png" alt="日本地図"> <div id="pin-tokyo" class="star-pin">★</div>
+            <div id="pin-osaka" class="star-pin">★</div>
+            <div id="pin-fukuoka" class="star-pin">★</div>
+            <div id="pin-sapporo" class="star-pin">★</div>
+            <div id="pin-nagoya" class="star-pin">★</div>
+            <div id="pin-sendai" class="star-pin">★</div>
+
+            </div>
+
+        <div class="store-list-section">
+            <h2>ポスター配布先店舗一覧</h2>
+            <ul class="store-list">
+                <li>北海道/札幌市 夢を売る店</li>
+                <li>宮城県/仙台市 約束の時計台カフェ</li>
+                <li>東京都/渋谷区 プペル書店</li>
+                <li>東京都/墨田区 ルビッチの工房</li>
+                <li>神奈川県/横浜市 ヒロインの洋菓子店</li>
+                <li>愛知県/名古屋市 スコップの工具店</li>
+                <li>大阪府/梅田 キンコン西野事務所</li>
+                <li>大阪府/難波 アントニオのBAR</li>
+                <li>広島県/福山市 煙突掃除屋の店</li>
+                <li>福岡県/博多区 光る絵本カフェ</li>
+                <li>沖縄県/那覇市 最高の友達の家</li>
+                </ul>
+        </div>
+    </div>
+
+</body>
+</html>
