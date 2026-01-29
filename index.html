@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>プペルアフター飲み会</title> 
     <style>
-        /* CSSは変更なし */
         html, body {
             margin: 0;
             padding: 0;
@@ -27,174 +26,82 @@
             max-width: 960px;
             margin: 0 auto;
             background-color: transparent; 
-            padding: 40px 30px; 
+            padding: 40px 15px; 
+            box-sizing: border-box;
+        }
+
+        /* ヘッダー画像 */
+        .header-image {
+            margin-bottom: 40px; 
+        }
+        .header-image img {
+            max-width: 100%; 
+            height: auto;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 
-        .header-image {
-            margin-bottom: 20px; 
+        /* 担当者リストのコンテナ */
+        .staff-list {
+            display: flex;
+            flex-direction: column;
+            gap: 50px; /* セットごとの間隔 */
+            margin-bottom: 60px;
         }
 
-        .header-image img {
-            max-width: 95%; 
+        /* ③担当者セット（画像＋名前リンク） */
+        .staff-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .staff-image {
+            max-width: 300px; 
+            width: 100%;
             height: auto;
-            display: block;
-            margin: 0 auto; 
+            border: 4px solid #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        
+
+        .staff-name-link {
+            display: inline-block;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #004c99;
+            text-decoration: none;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #004c99;
+            border-radius: 50px;
+            transition: 0.3s;
+            min-width: 200px;
+        }
+
+        .staff-name-link:hover {
+            background: #004c99;
+            color: #fff;
+        }
+
+        /* フッターメッセージ */
         .support-message {
-            font-size: 1rem; 
+            font-size: 0.9rem; 
             color: #555; 
-            margin-top: 10px; 
-            margin-bottom: 10px;
+            margin-top: 50px;
             line-height: 1.6;
-            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 30px;
         }
-        
         .support-message a {
             color: #004c99;
             font-weight: bold;
-            text-decoration: none;
         }
-        
         .small-note {
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             display: block; 
-            margin-top: 5px; 
-        }
-
-        .map-section {
-            position: relative;
-            max-width: 95%; 
-            display: inline-block;
-            margin-bottom: 15px; 
-            border: 1px solid #ddd;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .map-section img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .store-list-section {
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .store-list-section > h2 {
-            font-size: 1.3rem; 
-            color: #555;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-        }
-        
-        .prefecture-header {
-            font-size: 1.2rem;
-            color: #004c99;
-            background-color: #e6f0ff; 
-            padding: 10px 15px;
-            margin-top: 15px;
-            margin-bottom: 0;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.2s;
-            user-select: none; 
-        }
-        
-        .prefecture-header:hover {
-            background-color: #d0e4ff;
-        }
-        
-        .prefecture-header::after {
-            content: '▼'; 
-            font-size: 0.8em;
-            transition: transform 0.2s;
-        }
-        
-        .prefecture-header.open::after {
-            content: '▲';
-        }
-        
-        .store-group {
-            display: none; 
-            padding: 15px 0 5px;
-            border-left: 1px solid #ccc;
-            border-right: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-            border-radius: 0 0 4px 4px;
-            background-color: #fff;
-        }
-        
-        .store-group.active {
-            display: block !important; 
-        }
-
-        .store-list {
-            list-style: none;
-            padding: 0 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px 30px;
-            font-size: 0.9rem; 
-        }
-        
-        .store-list li {
-            min-width: 250px; 
-            flex-grow: 0; 
-            
-            line-height: 1.8;
-            border-left: 3px solid #ccc;
-            padding-left: 10px;
-            cursor: pointer; 
-            transition: background-color 0.1s;
-        }
-
-        /* リンク（aタグ）のスタイルを設定 */
-        .store-list li a {
-            display: block; 
-            width: 100%;
-            height: 100%;
-            color: inherit; 
-            text-decoration: none; 
-        }
-        
-        .store-list li:hover {
-            background-color: #f0f0f0; 
-        }
-
-        @media (max-width: 600px) {
-            .store-list {
-                display: block; 
-            }
-            .store-list li {
-                width: 100%; 
-                min-width: auto; 
-                margin-bottom: 10px; 
-            }
-            
-            .container { 
-                padding: 20px 15px; 
-            }
-            
-            .support-message {
-                font-size: 1rem; 
-            }
-            .small-note {
-                font-size: 0.7rem; 
-            }
-            
-            .prefecture-header {
-                font-size: 1.1rem;
-            }
+            margin-top: 10px; 
         }
     </style>
 </head>
@@ -206,40 +113,46 @@
             <img src="after top.jpg" alt="Top">
         </div>
 
-        <div class="map-section">
-            <img src="大阪Candy.png" alt="大阪">
+        <div class="staff-list">
+
+            <div class="staff-item">
+                <img src="大阪Candy.png" alt="担当者1" class="staff-image">
+                <a href="URL1" class="staff-name-link">大阪担当：〇〇さん ＞</a>
+            </div>
+
+            <div class="staff-item">
+                <img src="大阪Candy.png" alt="担当者2" class="staff-image">
+                <a href="URL2" class="staff-name-link">東京担当：△△さん ＞</a>
+            </div>
+
+            <div class="staff-item">
+                <img src="大阪Candy.png" alt="担当者3" class="staff-image">
+                <a href="URL3" class="staff-name-link">名古屋担当：□□さん ＞</a>
+            </div>
+
+            <div class="staff-item">
+                <img src="大阪Candy.png" alt="担当者4" class="staff-image">
+                <a href="URL4" class="staff-name-link">福岡担当：☆☆さん ＞</a>
+            </div>
+
+            <div class="staff-item">
+                <img src="大阪Candy.png" alt="担当者5" class="staff-image">
+                <a href="URL5" class="staff-name-link">札幌担当：◇◇さん ＞</a>
+            </div>
+
         </div>
-        
-        <div class="store-list-section">
-            <h2>大阪Candy担当者</h2>
-            
-          
- <p class="support-message">
-            本プロジェクトは映画えんとつ町のプペル-約束の時計台-を応援する同志が集い運営しております。
-            <br>
-            お問い合わせは下記までご連絡ください。
-            <br>
-            <a href="mailto:poupellefanteam@gmail.com">poupellefanteam@gmail.com</a>
-            <br>
+
+        <p class="support-message">
+            本プロジェクトは映画えんとつ町のプペル-約束の時計台-を応援する同志が集い運営しております。<br>
+            お問い合わせは下記までご連絡ください。<br>
+            <a href="mailto:poupellefanteam@gmail.com">poupellefanteam@gmail.com</a><br>
             <span class="small-note">
                 ※株式会社CHIMNEY TOWNへの<br>
-                お問合せはなさらぬようお願い申し上げます。</span>
+                お問合せはなさらぬようお願い申し上げます。
+            </span>
         </p>
+
     </div>
 
-        </div>
-    </div>
-
-    <script>
-        const prefectureHeaders = document.querySelectorAll('.prefecture-header');
-        prefectureHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const group = header.nextElementSibling;
-                header.classList.toggle('open');
-                group.classList.toggle('active');
-            });
-        });
-    </script>
-    
 </body>
 </html>
