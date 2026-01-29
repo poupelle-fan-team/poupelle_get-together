@@ -23,7 +23,7 @@
         }
 
         .container {
-            max-width: 1000px; /* 3列にするため少し広げました */
+            max-width: 1000px;
             margin: 0 auto;
             background-color: transparent; 
             padding: 40px 10px;
@@ -43,16 +43,14 @@
         /* 担当者リストのコンテナ */
         .staff-list {
             display: grid;
-            /* デフォルト（スマホ）：2列 */
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr; /* スマホ2列 */
             gap: 25px 10px;
             margin-bottom: 60px;
         }
 
-        /* PC・タブレットサイズ（768px以上）：3列 */
         @media (min-width: 768px) {
             .staff-list {
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr 1fr; /* PC3列 */
                 gap: 40px 20px;
             }
         }
@@ -61,7 +59,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .staff-image {
@@ -74,34 +72,48 @@
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
+        /* 2行対応のボタンリンク */
         .staff-name-link {
-            display: inline-block;
-            font-size: 0.85rem; /* スマホで2列にするため少し小さめに */
+            display: flex;
+            flex-direction: column; /* 縦並び */
+            justify-content: center;
+            align-items: center;
+            
             font-weight: bold;
             color: #004c99;
             text-decoration: none;
-            padding: 8px 5px;
+            padding: 10px 5px;
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #004c99;
-            border-radius: 50px;
+            border-radius: 15px; /* 2行なので丸みを少し抑えめに */
             transition: 0.3s;
             width: 95%;
-            max-width: 180px;
-            white-space: nowrap; /* 名前が折り返されないように */
-            overflow: hidden;
-            text-overflow: ellipsis; /* 長すぎる場合は「...」にする */
+            max-width: 220px;
+            line-height: 1.4;
+        }
+
+        /* 1行目（店舗名・地域） */
+        .staff-name-link span.place {
+            font-size: 0.75rem;
+            color: #666; /* 少し色を抑える */
+            margin-bottom: 2px;
+        }
+
+        /* 2行目（担当者名） */
+        .staff-name-link span.name {
+            font-size: 1rem;
         }
 
         @media (min-width: 768px) {
-            .staff-name-link {
-                font-size: 1rem;
-                padding: 10px 15px;
-                max-width: 220px;
-            }
+            .staff-name-link span.place { font-size: 0.9rem; }
+            .staff-name-link span.name { font-size: 1.2rem; }
         }
 
         .staff-name-link:hover {
             background: #004c99;
+            color: #fff !important;
+        }
+        .staff-name-link:hover span.place {
             color: #fff;
         }
 
@@ -134,66 +146,49 @@
 
         <div class="staff-list">
             <div class="staff-item">
-                <img src="大阪Candy.png" alt="担当者4" class="staff-image">
-                <a href="https://lin.ee/1sNdAEg" class="staff-name-link">仙台Candy 担当者＞</a>
-            </div>
-            <div class="staff-item">
                 <img src="大阪Candy.png" alt="担当者1" class="staff-image">
-                <a href="https://www.facebook.com/share/1Y4QUWL5DU/?mibextid=wwXIfr" class="staff-name-link">大阪Candy 担当者(代理ママ)＞</a>
+                <a href="https://lin.ee/1sNdAEg" class="staff-name-link" class="staff-name-link">
+                    <span class="place">仙台Candy</span>
+                    <span class="name">結城 亜紀(店舗LINE) ＞</span>
+                </a>
             </div>
+
             <div class="staff-item">
                 <img src="大阪Candy.png" alt="担当者2" class="staff-image">
-                <a href="https://share.google/lipp3akAJaekwM1rG" class="staff-name-link">スナック CANDY長崎思案橋店 担当者＞</a>
+                <a href="https://www.facebook.com/share/1Y4QUWL5DU/?mibextid=wwXIfr" class="staff-name-link">
+                    <span class="place">大阪Candy (代理ママ)</span>
+                    <span class="name">中村 けんじ(Facebook) ＞</span>
+                </a>
             </div>
+
             <div class="staff-item">
                 <img src="大阪Candy.png" alt="担当者3" class="staff-image">
-                <a href="https://share.google/lipp3akAJaekwM1rG" class="staff-name-link">スナック CANDY長崎つきまち横丁店＞</a>
+                <a href="URL3" class="staff-name-link">
+                    <span class="place">スナック CANDY長崎思案橋店</span>
+                    <span class="name">神崎 のり子＞</span>
+                </a>
             </div>
+
             <div class="staff-item">
-                <img src="大阪Candy.png" alt="担当者5" class="staff-image">
-                <a href="URL5" class="staff-name-link">札幌：◇◇さん ＞</a>
+                <img src="大阪Candy.png" alt="担当者4" class="staff-image">
+                <a href="URL3" class="staff-name-link">
+                    <span class="place">名古屋</span>
+                    <span class="name">鈴木 一郎 担当 ＞</span>
+                </a>
             </div>
+
             <div class="staff-item">
-                <img src="大阪Candy.png" alt="担当者6" class="staff-image">
-                <a href="URL6" class="staff-name-link">仙台：▽▽さん ＞</a>
+                <img src="大阪Candy.png" alt="担当者3" class="staff-image">
+                <a href="URL3" class="staff-name-link">
+                    <span class="place">名古屋</span>
+                    <span class="name">鈴木 一郎 担当 ＞</span>
+                </a>
             </div>
-            <div class="staff-item">
-                <img src="画像7.png" alt="担当者7" class="staff-image">
-                <a href="URL7" class="staff-name-link">広島：◎◎さん ＞</a>
+        
+
+
+            
             </div>
-            <div class="staff-item">
-                <img src="画像8.png" alt="担当者8" class="staff-image">
-                <a href="URL8" class="staff-name-link">沖縄：●●さん ＞</a>
-            </div>
-            <div class="staff-item">
-                <img src="画像9.png" alt="担当者9" class="staff-image">
-                <a href="URL9" class="staff-name-link">横浜：▲▲さん ＞</a>
-            </div>
-            <div class="staff-item">
-                <img src="画像10.png" alt="担当者10" class="staff-image">
-                <a href="URL10" class="staff-name-link">千葉：●●さん ＞</a>
-            </div>
-            <div class="staff-item">
-                <img src="画像11.png" alt="担当者11" class="staff-image">
-                <a href="URL11" class="staff-name-link">埼玉：■■さん ＞</a>
-            </div>
-            <div class="staff-item">
-                <img src="画像12.png" alt="担当者12" class="staff-image">
-                <a href="URL12" class="staff-name-link">京都：◇◇さん ＞</a>
-            </div>
-            <div class="staff-item">
-                <img src="画像13.png" alt="担当者13" class="staff-image">
-                <a href="URL13" class="staff-name-link">神戸：☆☆さん ＞</a>
-            </div>
-            <div class="staff-item">
-                <img src="画像14.png" alt="担当者14" class="staff-image">
-                <a href="URL14" class="staff-name-link">岡山：▽▽さん ＞</a>
-            </div>
-            <div class="staff-item">
-                <img src="画像15.png" alt="担当者15" class="staff-image">
-                <a href="URL15" class="staff-name-link">静岡：◎◎さん ＞</a>
-            </div>
-        </div>
 
         <p class="support-message">
             本プロジェクトは映画えんとつ町のプペル-約束の時計台-を応援する同志が集い運営しております。<br>
