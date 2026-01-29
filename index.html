@@ -26,11 +26,10 @@
             max-width: 960px;
             margin: 0 auto;
             background-color: transparent; 
-            padding: 40px 15px; 
+            padding: 40px 10px; /* 横余白を少し詰めました */
             box-sizing: border-box;
         }
 
-        /* ヘッダー画像 */
         .header-image {
             margin-bottom: 40px; 
         }
@@ -41,53 +40,60 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 
-        /* 担当者リストのコンテナ（グリッドレイアウト） */
+        /* 担当者リストのコンテナ（グリッド） */
         .staff-list {
             display: grid;
-            /* 基本は1列（スマホ用） */
-            grid-template-columns: 1fr;
-            gap: 40px 20px;
+            /* スマホでも2列並びにする設定 */
+            grid-template-columns: 1fr 1fr;
+            gap: 30px 10px; /* 上下30px, 左右10pxの間隔 */
             margin-bottom: 60px;
         }
 
-        /* PC・タブレットサイズ（600px以上）の時は2列にする */
-        @media (min-width: 600px) {
+        /* PCサイズ（768px以上）では間隔を広げる */
+        @media (min-width: 768px) {
             .staff-list {
-                grid-template-columns: 1fr 1fr;
+                gap: 50px 30px;
             }
         }
 
-        /* 担当者セット（画像＋名前リンク） */
         .staff-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 3px;
+            gap: 10px;
         }
 
         .staff-image {
             width: 100%;
-            max-width: 320px; /* 画像の最大サイズ */
-            aspect-ratio: 1 / 1; /* 正方形に揃えたい場合はこれを有効に（画像によります） */
+            max-width: 250px; 
+            aspect-ratio: 1 / 1; 
             object-fit: cover;
             border: 3px solid #fff;
-            border-radius: 7px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
         .staff-name-link {
             display: inline-block;
-            font-size: 1.1rem;
+            font-size: 0.9rem; /* スマホ向けに少し小さく */
             font-weight: bold;
             color: #004c99;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 8px 10px;
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #004c99;
             border-radius: 50px;
             transition: 0.3s;
-            width: 80%; /* ボタンの幅を調整 */
-            max-width: 240px;
+            width: 90%;
+            max-width: 200px;
+            word-break: break-all; /* 長い名前対策 */
+        }
+
+        @media (min-width: 768px) {
+            .staff-name-link {
+                font-size: 1.1rem;
+                padding: 10px 15px;
+            }
         }
 
         .staff-name-link:hover {
@@ -95,7 +101,6 @@
             color: #fff;
         }
 
-        /* フッターメッセージ */
         .support-message {
             font-size: 0.85rem; 
             color: #555; 
@@ -124,43 +129,69 @@
         </div>
 
         <div class="staff-list">
-
             <div class="staff-item">
                 <img src="大阪Candy.png" alt="担当者1" class="staff-image">
-                <a href="URL1" class="staff-name-link">大阪担当：〇〇さん ＞</a>
+                <a href="URL1" class="staff-name-link">大阪：〇〇さん ＞</a>
             </div>
             <div class="staff-item">
                 <img src="画像2.png" alt="担当者2" class="staff-image">
-                <a href="URL2" class="staff-name-link">東京担当：△△さん ＞</a>
+                <a href="URL2" class="staff-name-link">東京：△△さん ＞</a>
             </div>
-
             <div class="staff-item">
                 <img src="画像3.png" alt="担当者3" class="staff-image">
-                <a href="URL3" class="staff-name-link">名古屋担当：□□さん ＞</a>
+                <a href="URL3" class="staff-name-link">名古屋：□□さん ＞</a>
             </div>
             <div class="staff-item">
                 <img src="画像4.png" alt="担当者4" class="staff-image">
-                <a href="URL4" class="staff-name-link">福岡担当：☆☆さん ＞</a>
+                <a href="URL4" class="staff-name-link">福岡：☆☆さん ＞</a>
             </div>
 
             <div class="staff-item">
                 <img src="画像5.png" alt="担当者5" class="staff-image">
-                <a href="URL5" class="staff-name-link">札幌担当：◇◇さん ＞</a>
+                <a href="URL5" class="staff-name-link">札幌：◇◇さん ＞</a>
             </div>
             <div class="staff-item">
                 <img src="画像6.png" alt="担当者6" class="staff-image">
-                <a href="URL6" class="staff-name-link">仙台担当：▽▽さん ＞</a>
+                <a href="URL6" class="staff-name-link">仙台：▽▽さん ＞</a>
             </div>
-
             <div class="staff-item">
                 <img src="画像7.png" alt="担当者7" class="staff-image">
-                <a href="URL7" class="staff-name-link">広島担当：◎◎さん ＞</a>
+                <a href="URL7" class="staff-name-link">広島：◎◎さん ＞</a>
             </div>
             <div class="staff-item">
                 <img src="画像8.png" alt="担当者8" class="staff-image">
-                <a href="URL8" class="staff-name-link">沖縄担当：●●さん ＞</a>
+                <a href="URL8" class="staff-name-link">沖縄：●●さん ＞</a>
             </div>
 
+            <div class="staff-item">
+                <img src="画像9.png" alt="担当者9" class="staff-image">
+                <a href="URL9" class="staff-name-link">横浜：▲▲さん ＞</a>
+            </div>
+            <div class="staff-item">
+                <img src="画像10.png" alt="担当者10" class="staff-image">
+                <a href="URL10" class="staff-name-link">千葉：●●さん ＞</a>
+            </div>
+            <div class="staff-item">
+                <img src="画像11.png" alt="担当者11" class="staff-image">
+                <a href="URL11" class="staff-name-link">埼玉：■■さん ＞</a>
+            </div>
+            <div class="staff-item">
+                <img src="画像12.png" alt="担当者12" class="staff-image">
+                <a href="URL12" class="staff-name-link">京都：◇◇さん ＞</a>
+            </div>
+
+            <div class="staff-item">
+                <img src="画像13.png" alt="担当者13" class="staff-image">
+                <a href="URL13" class="staff-name-link">神戸：☆☆さん ＞</a>
+            </div>
+            <div class="staff-item">
+                <img src="画像14.png" alt="担当者14" class="staff-image">
+                <a href="URL14" class="staff-name-link">岡山：▽▽さん ＞</a>
+            </div>
+            <div class="staff-item">
+                <img src="画像15.png" alt="担当者15" class="staff-image">
+                <a href="URL15" class="staff-name-link">静岡：◎◎さん ＞</a>
+            </div>
         </div>
 
         <p class="support-message">
@@ -172,8 +203,6 @@
                 お問合せはなさらぬようお願い申し上げます。
             </span>
         </p>
-
     </div>
-
 </body>
 </html>
