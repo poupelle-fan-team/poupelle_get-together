@@ -23,10 +23,10 @@
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1000px; /* 3列にするため少し広げました */
             margin: 0 auto;
             background-color: transparent; 
-            padding: 40px 10px; /* 横余白を少し詰めました */
+            padding: 40px 10px;
             box-sizing: border-box;
         }
 
@@ -40,19 +40,20 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 
-        /* 担当者リストのコンテナ（グリッド） */
+        /* 担当者リストのコンテナ */
         .staff-list {
             display: grid;
-            /* スマホでも2列並びにする設定 */
+            /* デフォルト（スマホ）：2列 */
             grid-template-columns: 1fr 1fr;
-            gap: 30px 10px; /* 上下30px, 左右10pxの間隔 */
+            gap: 25px 10px;
             margin-bottom: 60px;
         }
 
-        /* PCサイズ（768px以上）では間隔を広げる */
+        /* PC・タブレットサイズ（768px以上）：3列 */
         @media (min-width: 768px) {
             .staff-list {
-                gap: 50px 30px;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 40px 20px;
             }
         }
 
@@ -75,24 +76,27 @@
 
         .staff-name-link {
             display: inline-block;
-            font-size: 0.9rem; /* スマホ向けに少し小さく */
+            font-size: 0.85rem; /* スマホで2列にするため少し小さめに */
             font-weight: bold;
             color: #004c99;
             text-decoration: none;
-            padding: 8px 10px;
+            padding: 8px 5px;
             background: rgba(255, 255, 255, 0.9);
             border: 2px solid #004c99;
             border-radius: 50px;
             transition: 0.3s;
-            width: 90%;
-            max-width: 200px;
-            word-break: break-all; /* 長い名前対策 */
+            width: 95%;
+            max-width: 180px;
+            white-space: nowrap; /* 名前が折り返されないように */
+            overflow: hidden;
+            text-overflow: ellipsis; /* 長すぎる場合は「...」にする */
         }
 
         @media (min-width: 768px) {
             .staff-name-link {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 padding: 10px 15px;
+                max-width: 220px;
             }
         }
 
@@ -145,7 +149,6 @@
                 <img src="画像4.png" alt="担当者4" class="staff-image">
                 <a href="URL4" class="staff-name-link">福岡：☆☆さん ＞</a>
             </div>
-
             <div class="staff-item">
                 <img src="画像5.png" alt="担当者5" class="staff-image">
                 <a href="URL5" class="staff-name-link">札幌：◇◇さん ＞</a>
@@ -162,7 +165,6 @@
                 <img src="画像8.png" alt="担当者8" class="staff-image">
                 <a href="URL8" class="staff-name-link">沖縄：●●さん ＞</a>
             </div>
-
             <div class="staff-item">
                 <img src="画像9.png" alt="担当者9" class="staff-image">
                 <a href="URL9" class="staff-name-link">横浜：▲▲さん ＞</a>
@@ -179,7 +181,6 @@
                 <img src="画像12.png" alt="担当者12" class="staff-image">
                 <a href="URL12" class="staff-name-link">京都：◇◇さん ＞</a>
             </div>
-
             <div class="staff-item">
                 <img src="画像13.png" alt="担当者13" class="staff-image">
                 <a href="URL13" class="staff-name-link">神戸：☆☆さん ＞</a>
