@@ -23,10 +23,11 @@
         }
 
         .container {
-            max-width: 1000px;
+            /* 2列が一番綺麗に見える幅に調整 */
+            max-width: 800px; 
             margin: 0 auto;
             background-color: transparent; 
-            padding: 40px 10px;
+            padding: 40px 15px;
             box-sizing: border-box;
         }
 
@@ -40,18 +41,18 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 
-        /* 担当者リストのコンテナ */
+        /* 担当者リスト：PC・スマホ共通で2列 */
         .staff-list {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* スマホ2列 */
-            gap: 25px 10px;
+            grid-template-columns: 1fr 1fr; 
+            gap: 30px 15px;
             margin-bottom: 60px;
         }
 
+        /* PCでの余白調整（少し広めにする） */
         @media (min-width: 768px) {
             .staff-list {
-                grid-template-columns: 1fr 1fr 1fr; /* PC3列 */
-                gap: 40px 20px;
+                gap: 50px 30px;
             }
         }
 
@@ -59,59 +60,59 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .staff-image {
             width: 100%;
-            max-width: 250px; 
+            /* 2列で見栄えが良いサイズ */
+            max-width: 320px; 
             aspect-ratio: 1 / 1; 
             object-fit: cover;
-            border: 3px solid #fff;
-            border-radius: 12px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            border: 4px solid #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
-        /* 2行対応のボタンリンク */
         .staff-name-link {
             display: flex;
-            flex-direction: column; /* 縦並び */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            
             font-weight: bold;
             color: #004c99;
             text-decoration: none;
-            padding: 10px 5px;
-            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 8px;
+            background: rgba(255, 255, 255, 0.95);
             border: 2px solid #004c99;
-            border-radius: 15px; /* 2行なので丸みを少し抑えめに */
+            border-radius: 12px;
             transition: 0.3s;
-            width: 95%;
-            max-width: 220px;
+            width: 90%;
+            max-width: 280px;
             line-height: 1.4;
         }
 
-        /* 1行目（店舗名・地域） */
         .staff-name-link span.place {
-            font-size: 0.9rem;
-            color: #666; /* 少し色を抑える */
-            margin-bottom: 2px;
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 4px;
         }
 
-        /* 2行目（担当者名） */
         .staff-name-link span.name {
             font-size: 1rem;
         }
 
+        /* PCでは少しだけ文字を大きく */
         @media (min-width: 768px) {
-            .staff-name-link span.place { font-size: 0.9rem; }
-            .staff-name-link span.name { font-size: 1.2rem; }
+            .staff-name-link span.place { font-size: 0.85rem; }
+            .staff-name-link span.name { font-size: 1.1rem; }
+            .staff-name-link { padding: 15px 10px; }
         }
 
         .staff-name-link:hover {
             background: #004c99;
             color: #fff !important;
+            transform: translateY(-3px); /* 浮き上がる演出 */
         }
         .staff-name-link:hover span.place {
             color: #fff;
@@ -121,7 +122,7 @@
             font-size: 0.85rem; 
             color: #555; 
             margin-top: 50px;
-            line-height: 1.6;
+            line-height: 1.8;
             border-top: 1px solid rgba(0,0,0,0.1);
             padding-top: 30px;
         }
@@ -139,62 +140,61 @@
 <body>
 
     <div class="container">
-        
         <div class="header-image">
             <img src="after top_2.jpg" alt="Top">
         </div>
 
         <div class="staff-list">
             <div class="staff-item">
-                <img src="001仙台.png" alt="担当者1" class="staff-image">
-                <a href="111" class="staff-name-link" class="staff-name-link">
+                <img src="001仙台.png" alt="宮城" class="staff-image">
+                <a href="111" class="staff-name-link">
                     <span class="place">宮城/スナックCandy仙台</span>
                     <span class="name">参加はこちら＞</span>
                 </a>
             </div>
 
             <div class="staff-item">
-                <img src="008中野.png" alt="担当者2" class="staff-image">
+                <img src="008中野.png" alt="東京" class="staff-image">
                 <a href="111" class="staff-name-link">
                     <span class="place">東京/中野Candy</span>
                     <span class="name">参加はこちら＞</span>
                 </a>
             </div>
 
-             <div class="staff-item">
-                <img src="010愛知.png" alt="担当者3" class="staff-image">
+            <div class="staff-item">
+                <img src="010愛知.png" alt="愛知" class="staff-image">
                 <a href="111" class="staff-name-link">
                     <span class="place">愛知/ハラミ越え</span>
                     <span class="name">参加はこちら＞</span>
                 </a>
             </div>
 
-              <div class="staff-item">
-                <img src="002大阪.png" alt="担当者4" class="staff-image">
+            <div class="staff-item">
+                <img src="002大阪.png" alt="大阪" class="staff-image">
                 <a href="https://chouseisan.com/s?h=8833723cb68c4327bbfae6edd87e233e" class="staff-name-link">
                     <span class="place">大阪/大阪Candy</span>
                     <span class="name">参加はこちら＞</span>
                 </a>
             </div>
 
-              <div class="staff-item">
-                <img src="006岡山.png" alt="担当者5" class="staff-image">
+            <div class="staff-item">
+                <img src="006岡山.png" alt="岡山" class="staff-image">
                 <a href="111" class="staff-name-link">
                     <span class="place">岡山/喫茶Candy奉還町</span>
                     <span class="name">参加はこちら＞</span>
                 </a>
             </div>
 
-              <div class="staff-item">
-                <img src="007倉敷.png" alt="担当者6" class="staff-image">
+            <div class="staff-item">
+                <img src="007倉敷.png" alt="倉敷" class="staff-image">
                 <a href="111" class="staff-name-link">
                     <span class="place">岡山/スナックCandy倉敷</span>
                     <span class="name">参加はこちら＞</span>
                 </a>
             </div>
 
-              <div class="staff-item">
-                <img src="009鳥取.png" alt="担当者7" class="staff-image">
+            <div class="staff-item">
+                <img src="009鳥取.png" alt="鳥取" class="staff-image">
                 <a href="111" class="staff-name-link">
                     <span class="place">鳥取/おもちゃ屋SUN</span>
                     <span class="name">参加はこちら＞</span>
@@ -202,7 +202,7 @@
             </div>
             
             <div class="staff-item">
-                <img src="003山口.png" alt="担当者8" class="staff-image">
+                <img src="003山口.png" alt="山口" class="staff-image">
                 <a href="h111" class="staff-name-link">
                     <span class="place">山口/スナックCandy山口防府店</span>
                     <span class="name">参加はこちら＞</span>
@@ -210,7 +210,7 @@
             </div>
 
             <div class="staff-item">
-                <img src="004長崎.png" alt="担当者9" class="staff-image">
+                <img src="004長崎.png" alt="長崎思案橋" class="staff-image">
                 <a href="111" class="staff-name-link">
                     <span class="place">長崎/スナックCANDY長崎思案橋店</span>
                     <span class="name">参加はこちら＞</span>
@@ -218,17 +218,13 @@
             </div>
 
             <div class="staff-item">
-                <img src="005長崎.png" alt="担当者10" class="staff-image">
+                <img src="005長崎.png" alt="長崎つきまち" class="staff-image">
                 <a href="111" class="staff-name-link">
                     <span class="place">長崎/スナックCANDY長崎つきまち店</span>
                     <span class="name">参加はこちら＞</span>
                 </a>
             </div>
-        
-
-
-            
-            </div>
+        </div>
 
         <p class="support-message">
             本プロジェクトは映画えんとつ町のプペル-約束の時計台-を応援する同志が集い運営しております。<br>
