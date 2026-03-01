@@ -23,7 +23,6 @@
         }
 
         .container {
-            /* 2列が一番綺麗に見える幅に調整 */
             max-width: 800px; 
             margin: 0 auto;
             background-color: transparent; 
@@ -41,7 +40,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
         }
 
-        /* 担当者リスト：PC・スマホ共通で2列 */
+        /* 担当者リスト：2列レイアウト */
         .staff-list {
             display: grid;
             grid-template-columns: 1fr 1fr; 
@@ -49,7 +48,7 @@
             margin-bottom: 60px;
         }
 
-        /* PCでの余白調整（少し広めにする） */
+        /* PCでの余白調整 */
         @media (min-width: 768px) {
             .staff-list {
                 gap: 50px 30px;
@@ -65,7 +64,6 @@
 
         .staff-image {
             width: 100%;
-            /* 2列で見栄えが良いサイズ */
             max-width: 320px; 
             aspect-ratio: 1 / 1; 
             object-fit: cover;
@@ -102,7 +100,6 @@
             font-size: 1rem;
         }
 
-        /* PCでは少しだけ文字を大きく */
         @media (min-width: 768px) {
             .staff-name-link span.place { font-size: 0.85rem; }
             .staff-name-link span.name { font-size: 1.1rem; }
@@ -112,7 +109,7 @@
         .staff-name-link:hover {
             background: #004c99;
             color: #fff !important;
-            transform: translateY(-3px); /* 浮き上がる演出 */
+            transform: translateY(-3px);
         }
         .staff-name-link:hover span.place {
             color: #fff;
@@ -153,7 +150,7 @@
                 </a>
             </div>
 
-　　　　　　　 <div class="staff-item">
+            <div class="staff-item">
                 <img src="1.png" alt="宮城" class="staff-image">
                 <a href="https://chouseisan.com/s?h=63eef7e703874246bd0ccb8f82555603" class="staff-name-link">
                     <span class="place">宮城/スナックCandy仙台</span>
@@ -187,78 +184,4 @@
 
             <div class="staff-item">
                 <img src="2.png" alt="大阪" class="staff-image">
-                <a href="https://chouseisan.com/s?h=53fd63b3f5514a178ddae81f2476e37b&fbclid=IwdGRjcAPrk3ZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEeUMn_ZLKUhQZ_BtMG7Te4XMsa6hfz3VliXgu6WyNGLGDENnfK1Fc-odYNtJ8_aem_wYTfc8Y0RYmothgdywYVFg" class="staff-name-link">
-                    <span class="place">大阪/大阪Candy</span>
-                    <span class="name">参加はこちら＞</span>
-                </a>
-            </div>
-
-            <div class="staff-item">
-                <img src="6.png" alt="岡山" class="staff-image">
-                <a href="https://chouseisan.com/s?h=cbe2c0b536cd43358bd3b7f8e0a104bb" class="staff-name-link">
-                    <span class="place">岡山/喫茶Candy奉還町</span>
-                    <span class="name">参加はこちら＞</span>
-                </a>
-            </div>
-
-            <div class="staff-item">
-                <img src="7.png" alt="倉敷" class="staff-image">
-                <a href="https://chouseisan.com/s?h=574a92f8f8454db193ae50e96f878026" class="staff-name-link">
-                    <span class="place">岡山/スナックCandy倉敷</span>
-                    <span class="name">参加はこちら＞</span>
-                </a>
-            </div>
-
-            <div class="staff-item">
-                <img src="9.png" alt="鳥取" class="staff-image">
-                <a href="https://chouseisan.com/s?h=fa7001a1e18a49559184e341037db7dd" class="staff-name-link">
-                    <span class="place">鳥取/おもちゃ屋SUN</span>
-                    <span class="name">参加はこちら＞</span>
-                </a>
-            </div>
-            
-            <div class="staff-item">
-                <img src="5.png" alt="山口" class="staff-image">
-                <a href="https://chouseisan.com/s?h=e720aabf3db644faa231b5129aeae41d" class="staff-name-link">
-                    <span class="place">山口/スナックCandy山口防府店</span>
-                    <span class="name">参加はこちら＞</span>
-                </a>
-            </div>
-
-            <div class="staff-item">
-                <img src="3.png" alt="長崎思案橋" class="staff-image">
-                <a href="https://chouseisan.com/s?h=7ddf9399e5f24d39b002427bf175747f" class="staff-name-link">
-                    <span class="place">長崎/スナックCANDY長崎思案橋店</span>
-                    <span class="name">参加はこちら＞</span>
-                </a>
-            </div>
-
-            <div class="staff-item">
-                <img src="4.png" alt="長崎つきまち" class="staff-image">
-                <a href="https://chouseisan.com/s?h=2458bacbaf3547979cf7044fd71afb06" class="staff-name-link">
-                    <span class="place">長崎/スナックCANDY長崎つきまち店</span>
-                    <span class="name">参加はこちら＞</span>
-                </a>
-            </div>
-
-             <div class="staff-item">
-                <img src="12.png" alt="宮崎" class="staff-image">
-                <a href="https://chouseisan.com/s?h=647e37f92f464f31b2dce22f455733f0" class="staff-name-link">
-                    <span class="place">宮崎/スナックCANDY宮崎</span>
-                    <span class="name">参加はこちら＞</span>
-                </a>
-            </div>            
-        </div>
-
-        <p class="support-message">
-            本プロジェクトは映画えんとつ町のプペル-約束の時計台-を応援する同志が集い運営しております。<br>
-            お問い合わせは下記までご連絡ください。<br>
-            <a href="mailto:poupellefanteam@gmail.com">poupellefanteam@gmail.com</a><br>
-            <span class="small-note">
-                ※株式会社CHIMNEY TOWNへの<br>
-                お問合せはなさらぬようお願い申し上げます。
-            </span>
-        </p>
-    </div>
-</body>
-</html>
+                <a href="
